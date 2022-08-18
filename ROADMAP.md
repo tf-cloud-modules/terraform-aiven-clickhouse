@@ -11,5 +11,5 @@ This document describes the current status of this project.
 | ✔ | [Add examples]() ||
 | ✔ | [Add database module]() ||
 | ✔ | [Add role module]() ||
-| ❌ | [Add grant module]() ||
+| ✔ | [Add grant module]() ||
 | ✔ | [Add user module]() ||
