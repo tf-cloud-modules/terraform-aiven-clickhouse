@@ -17,3 +17,10 @@ module "role" {
   service_name = module.clickhouse.service_name
   role         = "test"
 }
+
+module "user" {
+  source       = "../../modules/user"
+  project      = module.clickhouse.project
+  service_name = module.clickhouse.service_name
+  username     = "test"
+}

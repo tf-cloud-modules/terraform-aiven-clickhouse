@@ -5,6 +5,7 @@ Configuration in this directory creates an Aiven Clickhouse cluster with followi
 - Aiven Clickhouse Cluster
 - Aiven Clickhouse Database
 - Aiven Clickhouse Role
+- Aiven Clickhouse User
 
 ## Usage
 
@@ -32,6 +33,7 @@ No providers.
 | <a name="module_clickhouse"></a> [clickhouse](#module\_clickhouse) | ../.. | n/a |
 | <a name="module_database"></a> [database](#module\_database) | ../../modules/database | n/a |
 | <a name="module_role"></a> [role](#module\_role) | ../../modules/role | n/a |
+| <a name="module_user"></a> [user](#module\_user) | ../../modules/user | n/a |
 
 ## Resources
 

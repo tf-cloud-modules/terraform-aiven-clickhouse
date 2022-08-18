@@ -12,4 +12,4 @@ This document describes the current status of this project.
 | ✔ | [Add database module]() ||
 | ✔ | [Add role module]() ||
 | ❌ | [Add grant module]() ||
-| ❌ | [Add user module]() ||
+| ✔ | [Add user module]() ||
