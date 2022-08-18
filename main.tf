@@ -10,6 +10,11 @@ resource "aiven_clickhouse" "this" {
   service_name            = var.service_name
   termination_protection  = var.termination_protection
 
+  clickhouse_user_config {
+    ip_filter            = var.ip_filter
+    project_to_fork_from = var.project_to_fork_from
+    service_to_fork_from = var.service_to_fork_from
+  }
 
   dynamic "tag" {
     for_each = var.tags
