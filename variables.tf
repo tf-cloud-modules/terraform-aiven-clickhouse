@@ -79,3 +79,9 @@ variable "service_to_fork_from" {
   type        = string
   default     = ""
 }
+
+variable "service_integrations" {
+  description = "Service integrations to specify when creating a service."
+  type        = list(any)
+  default     = []
+}

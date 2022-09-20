@@ -16,6 +16,14 @@ resource "aiven_clickhouse" "this" {
     service_to_fork_from = var.service_to_fork_from
   }
 
+  dynamic "service_integrations" {
+    for_each = var.service_integrations
+    content {
+      integration_type    = lookup(service_integrations.value, "integration_type", null)
+      source_service_name = lookup(service_integrations.value, "source_service_name", null)
+    }
+  }
+
   dynamic "tag" {
     for_each = var.tags
     content {
