@@ -1,6 +1,6 @@
 module "clickhouse" {
   source       = "../.."
-  project      = "tf-cloud-modules"
+  project      = var.project
   service_name = "test"
   tags = [
     {
