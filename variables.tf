@@ -7,7 +7,7 @@ variable "create" {
 variable "cloud_name" {
   description = "Defines where the cloud provider and region where the service is hosted in."
   type        = string
-  default     = "google-europe-west1"
+  default     = "aws-us-east-1"
 }
 
 variable "maintenance_window_dow" {
@@ -25,7 +25,7 @@ variable "maintenance_window_time" {
 variable "plan" {
   description = "Defines what kind of computing resources are allocated for the service."
   type        = string
-  default     = "hobbyist-beta"
+  default     = "hobbyist"
 }
 
 variable "project" {
