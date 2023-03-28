@@ -11,9 +11,16 @@ resource "aiven_clickhouse" "this" {
   termination_protection  = var.termination_protection
 
   clickhouse_user_config {
-    ip_filter            = var.ip_filter
     project_to_fork_from = var.project_to_fork_from
     service_to_fork_from = var.service_to_fork_from
+
+    dynamic "ip_filter_object" {
+      for_each = var.ip_filter_object
+      content {
+        network     = lookup(ip_filter_object.value, "network")
+        description = lookup(ip_filter_object.value, "description", null)
+      }
+    }
   }
 
   dynamic "service_integrations" {
