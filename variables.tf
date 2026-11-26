@@ -29,9 +29,9 @@ variable "maintenance_window_time" {
 }
 
 variable "plan" {
-  description = "Defines what kind of computing resources are allocated for the service."
+  description = "Defines the service plan. Defaults to the paid startup-8 plan, which is available in aws-us-east-1."
   type        = string
-  default     = "hobbyist"
+  default     = "startup-8"
 }
 
 variable "project" {

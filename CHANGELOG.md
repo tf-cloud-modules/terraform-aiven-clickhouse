@@ -17,7 +17,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Default new ClickHouse services to version `26.3`, currently the latest version available on Aiven.
+- Change the default service plan from the unavailable `hobbyist` to paid `startup-8`, available in `aws-us-east-1`.
 - Raise the aiven/aiven provider constraint to `>= 4.61.0, < 5.0.0`; provider 4.61.0 added `26.3` to the `clickhouse_version` enum.
+
+### Migration
+- Existing services may plan a change to the paid `startup-8` service plan and incur different charges. Review the plan before applying and set `plan` to the service's current value to preserve it.
 
 ## [2.0.0] - 2023-03-28
 

@@ -11,11 +11,12 @@ module "clickhouse" {
   source       = "tf-cloud-modules/clickhouse/aiven"
   project      = "test"
   service_name = "test"
+  plan         = "startup-8"
   clickhouse_version = "26.3"
 }
 ```
 
-По умолчанию модуль выбирает ClickHouse `26.3` — последнюю доступную сейчас версию Aiven. При подключении обновлённого модуля к существующему сервису Terraform может запланировать обновление ClickHouse. Проверьте план и укажите текущую версию в `clickhouse_version`, если хотите оставить сервис без изменений.
+По умолчанию модуль использует платный план `startup-8`, доступный в регионе `aws-us-east-1`, и ClickHouse `26.3` — последнюю доступную сейчас версию Aiven. Для существующего сервиса изменение default-плана может изменить план и стоимость. Перед apply проверьте план Terraform; чтобы сохранить настройки, укажите текущий `plan`. Аналогично закрепите текущую версию в `clickhouse_version`, если не хотите обновлять ClickHouse.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -56,7 +57,7 @@ No modules.
 | <a name="input_ip_filter_string"></a> [ip\_filter\_string](#input\_ip\_filter\_string) | Allow incoming connections from CIDR address block, e.g. '10.20.0.0/16'. | `list(string)` | `null` | no |
 | <a name="input_maintenance_window_dow"></a> [maintenance\_window\_dow](#input\_maintenance\_window\_dow) | Day of week when maintenance operations should be performed. One monday, tuesday, wednesday, etc. | `string` | `"thursday"` | no |
 | <a name="input_maintenance_window_time"></a> [maintenance\_window\_time](#input\_maintenance\_window\_time) | Time of day when maintenance operations should be performed. UTC time in HH:mm:ss format. | `string` | `"01:00:00"` | no |
-| <a name="input_plan"></a> [plan](#input\_plan) | Defines what kind of computing resources are allocated for the service. | `string` | `"hobbyist"` | no |
+| <a name="input_plan"></a> [plan](#input\_plan) | Defines the service plan. Defaults to the paid startup-8 plan, which is available in aws-us-east-1. | `string` | `"startup-8"` | no |
 | <a name="input_private_access_clickhouse"></a> [private\_access\_clickhouse](#input\_private\_access\_clickhouse) | Allow clients to connect to clickhouse with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations. | `bool` | `false` | no |
 | <a name="input_private_access_clickhouse_arrowflight"></a> [private\_access\_clickhouse\_arrowflight](#input\_private\_access\_clickhouse\_arrowflight) | Allow clients to connect to clickhouse\_arrowflight with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations. | `bool` | `false` | no |
 | <a name="input_private_access_clickhouse_https"></a> [private\_access\_clickhouse\_https](#input\_private\_access\_clickhouse\_https) | Allow clients to connect to clickhouse\_https with a DNS name that always resolves to the service's private IP addresses. Only available in certain network locations. | `bool` | `false` | no |
