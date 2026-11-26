@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-11-26
+
 ### Added
 - New `clickhouse_user_config` fields as flat variables: `backup_hour`, `backup_minute`, `clickhouse_version`, `enable_ipv6`, `ip_filter_string`, `recovery_basebackup_name`, `service_log`, `tiered_storage_move_factor`.
 - `public_access`, `private_access` and `privatelink_access` blocks of `clickhouse_user_config` via flat `public_access_*`, `private_access_*` and `privatelink_*` variables (clickhouse, clickhouse_arrowflight, clickhouse_https, clickhouse_mysql, prometheus).
@@ -21,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Raise the aiven/aiven provider constraint to `>= 4.61.0, < 5.0.0`; provider 4.61.0 added `26.3` to the `clickhouse_version` enum.
 
 ### Migration
-- Existing services may plan a change to the paid `startup-8` service plan and incur different charges. Review the plan before applying and set `plan` to the service's current value to preserve it.
+- This is a major release: the minimum supported Aiven provider version increased, and defaults may change existing services. Review the Terraform plan before applying. Set `plan` and `clickhouse_version` to the values already used by each service to preserve its plan, cost, and ClickHouse version.
 
 ## [2.0.0] - 2023-03-28
 
@@ -77,7 +79,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Initial release.
 
-[Unreleased]: https://github.com/tf-cloud-modules/terraform-aiven-clickhouse/compare/2.0.0...HEAD
+[Unreleased]: https://github.com/tf-cloud-modules/terraform-aiven-clickhouse/compare/3.0.0...HEAD
+[3.0.0]: https://github.com/tf-cloud-modules/terraform-aiven-clickhouse/compare/2.0.0...3.0.0
 [2.0.0]: https://github.com/tf-cloud-modules/terraform-aiven-clickhouse/compare/1.1.2...2.0.0
 [1.1.2]: https://github.com/tf-cloud-modules/terraform-aiven-clickhouse/compare/1.1.1...1.1.2
 [1.1.1]: https://github.com/tf-cloud-modules/terraform-aiven-clickhouse/compare/1.1.0...1.1.1
