@@ -2,6 +2,7 @@ module "clickhouse" {
   source       = "../.."
   project      = var.project
   service_name = "test"
+  plan         = "startup-8"
   tags = [
     {
       key   = "env"

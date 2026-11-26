@@ -3,6 +3,11 @@ output "cloud_name" {
   value       = try(aiven_clickhouse.this[0].cloud_name, "")
 }
 
+output "cmk_id" {
+  description = "UUID of the Customer Managed Key (CMK) used to apply bring your own key (BYOK) encryption to this service's data at rest."
+  value       = try(aiven_clickhouse.this[0].cmk_id, "")
+}
+
 output "components" {
   description = "Service component information objects."
   value       = try(aiven_clickhouse.this[0].components, "")
@@ -36,6 +41,11 @@ output "maintenance_window_dow" {
 output "maintenance_window_time" {
   description = "Time of day when maintenance operations should be performed."
   value       = try(aiven_clickhouse.this[0].maintenance_window_time, "")
+}
+
+output "maintenance_window_enabled" {
+  description = "Indicates whether the maintenance window is currently enabled for this service."
+  value       = try(aiven_clickhouse.this[0].maintenance_window_enabled, "")
 }
 
 output "plan" {
@@ -100,4 +110,9 @@ output "clickhouse_user_config" {
   description = "Сlickhouse user configurable settings."
   sensitive   = true
   value       = try(aiven_clickhouse.this[0].clickhouse_user_config, "")
+}
+
+output "tech_emails" {
+  description = "The email addresses for service contacts, who will receive important alerts and updates about this service."
+  value       = try(aiven_clickhouse.this[0].tech_emails, "")
 }
