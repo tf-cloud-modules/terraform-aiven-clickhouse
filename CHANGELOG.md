@@ -16,7 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Russian translation of the README (`README.ru.md`).
 
 ### Changed
-- Raise aiven/aiven provider constraint to `>= 4.57.0, < 5.0.0` (validated against 4.66.0).
+- Default new ClickHouse services to version `26.3`, currently the latest version available on Aiven.
+- Raise the aiven/aiven provider constraint to `>= 4.61.0, < 5.0.0`; provider 4.61.0 added `26.3` to the `clickhouse_version` enum.
 
 ## [2.0.0] - 2023-03-28
 

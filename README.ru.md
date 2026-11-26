@@ -11,8 +11,11 @@ module "clickhouse" {
   source       = "tf-cloud-modules/clickhouse/aiven"
   project      = "test"
   service_name = "test"
+  clickhouse_version = "26.3"
 }
 ```
+
+По умолчанию модуль выбирает ClickHouse `26.3` — последнюю доступную сейчас версию Aiven. При подключении обновлённого модуля к существующему сервису Terraform может запланировать обновление ClickHouse. Проверьте план и укажите текущую версию в `clickhouse_version`, если хотите оставить сервис без изменений.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -20,7 +23,7 @@ module "clickhouse" {
 | Name | Version |
 | ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
-| <a name="requirement_aiven"></a> [aiven](#requirement\_aiven) | >= 4.57.0, < 5.0.0 |
+| <a name="requirement_aiven"></a> [aiven](#requirement\_aiven) | >= 4.61.0, < 5.0.0 |
 
 ## Providers
 
@@ -44,7 +47,7 @@ No modules.
 | ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_backup_hour"></a> [backup\_hour](#input\_backup\_hour) | The hour of day (in UTC) when backup for the service is started. New backup is only started if previous backup has already completed. | `number` | `null` | no |
 | <a name="input_backup_minute"></a> [backup\_minute](#input\_backup\_minute) | The minute of an hour when backup for the service is started. New backup is only started if previous backup has already completed. | `number` | `null` | no |
-| <a name="input_clickhouse_version"></a> [clickhouse\_version](#input\_clickhouse\_version) | ClickHouse major version. | `string` | `null` | no |
+| <a name="input_clickhouse_version"></a> [clickhouse\_version](#input\_clickhouse\_version) | ClickHouse major version. Defaults to 26.3, the latest version currently available on Aiven. | `string` | `"26.3"` | no |
 | <a name="input_cloud_name"></a> [cloud\_name](#input\_cloud\_name) | Defines where the cloud provider and region where the service is hosted in. | `string` | `"aws-us-east-1"` | no |
 | <a name="input_cmk_id"></a> [cmk\_id](#input\_cmk\_id) | UUID of the Customer Managed Key (CMK) used to apply bring your own key (BYOK) encryption to this service's data at rest. | `string` | `null` | no |
 | <a name="input_create"></a> [create](#input\_create) | Controls if resources should be created. | `bool` | `true` | no |

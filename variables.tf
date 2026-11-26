@@ -115,9 +115,9 @@ variable "backup_minute" {
 }
 
 variable "clickhouse_version" {
-  description = "ClickHouse major version."
+  description = "ClickHouse major version. Defaults to 26.3, the latest version currently available on Aiven."
   type        = string
-  default     = null
+  default     = "26.3"
 }
 
 variable "enable_ipv6" {
